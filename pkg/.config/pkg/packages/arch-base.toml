@@ -7,53 +7,54 @@ priority = 0
 
 [pacman]
 packages = [
-    "base-devel",
-    "git",
-    "less",
-    "git-lfs",
-    "rbw",
-    "curl",
-    "zip",
-    "unzip",
     "aria2",
+    "base-devel",
+    "bash-completion",
+    "btop",
+    "curl",
+    "fastfetch",
     "fzf",
-    "nano",
+    "git",
+    "git-lfs",
+    "jq",
+    "less",
     "micro",
     "mise",
-    "btop",
-    "jq",
-    "fastfetch",
-    "wtype",
-    "bash-completion",
+    "nano",
+    "rbw",
     "starship",
+    "unzip",
+    "wtype",
+    "zip",
 
     # audio
+    "libpulse",
     "pipewire",
     "pipewire-pulse",
     "wireplumber",
-    "libpulse",
 
     # network and bluetooth
-    "networkmanager",
     "bluez",
     "bluez-utils",
+    "networkmanager",
 
     # power and brightness
-    "upower",
-    "power-profiles-daemon",
     "brightnessctl",
+    "power-profiles-daemon",
+    "upower",
 
     # for ruby compile
     "libyaml",
 
     # for appimage run
     "fuse2",
-    "powertop",
-    "evtest",
-    "wev",
-    "python-huggingface-hub",
-    "ollama-vulkan",
 
+    # misc
+    "evtest",
+    "ollama-vulkan",
+    "powertop",
+    "python-huggingface-hub",
+    "wev",
 ]
 
 # [paru]

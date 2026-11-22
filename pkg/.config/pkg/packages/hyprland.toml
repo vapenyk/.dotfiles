@@ -9,36 +9,36 @@ priority = 20
 packages = [
     # Hyprland session
     "hyprland",
-    "uwsm",
-    "xdg-desktop-portal-hyprland",
-    "xdg-desktop-portal-gtk",
-    "polkit",
-    "xdg-utils",
     "libinput-tools",
-    "wayland-utils",
+    "polkit",
+    "uwsm",
     "vulkan-tools",
+    "wayland-utils",
+    "xdg-desktop-portal-gtk",
+    "xdg-desktop-portal-hyprland",
+    "xdg-utils",
 
     # shell and login screen
-    "quickshell",
     "gnome-keyring",
     "libsecret",
+    "quickshell",
     "seahorse",
 
     # quick capture
-    "gpu-screen-recorder",
-    "wf-recorder",
     "ffmpeg",
+    "gpu-screen-recorder",
     "imagemagick",
     "img2pdf",
     "tesseract",
+    "wf-recorder",
     "zbar",
 
     # screenshots (island: shot.sh)
     "grim",
-    "slurp",
     "hyprpicker",
-    "satty",
     "jq",
+    "satty",
+    "slurp",
     "wl-clipboard",
 
     # clipboard history, notifications, media keys, sounds
@@ -46,46 +46,47 @@ packages = [
     "sound-theme-freedesktop",
 
     # qt6
-    "qt6-wayland",
     "qt6-base",
-    "qt6-tools",
+    "qt6-declarative",
     "qt6-multimedia",
     "qt6-svg",
-    "qt6-declarative",
+    "qt6-tools",
+    "qt6-wayland",
 
     # apps
-    "nwg-look",
-    "zed",
-    "peazip",
-    "ghostty",
-    "foot",
-    "chromium",
-    "nautilus",
-    "mpv",
-    "imv",
-    "udiskie",
     "artcraft-launcher-bin",
+    "chromium",
+    "foot",
+    "ghostty",
+    "imv",
+    "mpv",
+    "nautilus",
+    "nwg-look",
+    "peazip",
     "telegram-desktop",
+    "udiskie",
+    "zed",
 
     # small things that are painful to live without
-    "xdg-user-dirs",
-    "adwaita-icon-theme",
     "adwaita-cursors",
+    "adwaita-fonts",
+    "adwaita-icon-theme",
     "noto-fonts",
     "noto-fonts-emoji",
-    "adwaita-fonts",
-    "ttf-jetbrains-mono-nerd",
-    "ttf-nerd-fonts-symbols",
     "ttf-iosevka-nerd",
+    "ttf-jetbrains-mono-nerd",
     "ttf-material-symbols-variable",
+    "ttf-nerd-fonts-symbols",
+    "xdg-user-dirs",
 ]
 
 [paru]
 packages = [
     # terminal launcher (reads ~/.config/xdg-terminals.list)
     "xdg-terminal-exec",
-    "ttf-roboto-flex",
-    "vicinae-bin",
+
     "t3code-bin",
+    "ttf-roboto-flex",
     "vesktop-bin",
+    "vicinae-bin",
 ]

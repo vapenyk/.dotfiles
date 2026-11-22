@@ -7,16 +7,16 @@ priority = 50
 
 [flatpak]
 packages = [
-    # "io.github.qwersyk.Newelle",
+    # "com.github.tchx84.Flatseal",
+    # "com.protonvpn.www",
     # "dev.vencord.Vesktop",
     # "io.anytype.anytype",
-    # "md.obsidian.Obsidian",
-    # "com.protonvpn.www",
-    # "it.mijorus.gearlever",
-    # "com.github.tchx84.Flatseal",
+    # "io.github.flattool.Ignition",
     # "io.github.flattool.Warehouse",
     # "io.github.kolunmi.Bazaar",
-    # "io.github.flattool.Ignition",
     # "io.github.plrigaux.sysd-manager",
+    # "io.github.qwersyk.Newelle",
+    # "it.mijorus.gearlever",
+    # "md.obsidian.Obsidian",
     # "org.gtk.Gtk3theme.adw-gtk3-dark",
 ]
