@@ -1,6 +1,7 @@
 -- Entry point. Configs in include/, scripts in scripts/.
 -- bindings.lua next to this file is personal and optional: no file, no problem.
 
+require("include.autostart")
 require("include.settings")
 require("include.binds")
 require("include.rules")
