@@ -27,6 +27,10 @@ packages = [
     "wtype",
     "zip",
 
+    # build tools
+    "meson",
+    "ninja",
+
     # audio
     "libpulse",
     "pipewire",

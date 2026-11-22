@@ -27,6 +27,7 @@ packages = [
     # quick capture
     "ffmpeg",
     "gpu-screen-recorder",
+    "gtk4-layer-shell",
     "imagemagick",
     "img2pdf",
     "tesseract",
