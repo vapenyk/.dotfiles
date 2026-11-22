@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 # scripts/post-install.sh — the steps that need YOUR accounts/secrets.
-# Run once by hand after `pkg sync`. Secrets come from Bitwarden (rbw)
-# at run time, so nothing sensitive lands in the repo or in shell history.
+# Run by hand in the session after `pkg sync`. Safe to re-run: finished
+# steps are skipped. Secrets come from Bitwarden (rbw) at run time, so
+# nothing sensitive lands in the repo or in shell history.
 #
-# Bitwarden notes expected (key on the FIRST line of the note):
-#   penpot-mcp-token, context7-api-key
+# Bitwarden notes expected (value on the FIRST line of the note):
+#   penpot-mcp-token  — the full MCP URL exactly as Penpot gives it
+#                       (https://design.penpot.app/mcp/stream?userToken=...)
+#   context7-api-key  — the Context7 API key
 set -euo pipefail
 
 # gh and npx come from mise
@@ -38,6 +41,8 @@ done
 [[ -d "$skills_dir/find-skills" ]] || npx skills add vercel-labs/skills --skill find-skills -g -y
 
 # ── MCP servers: each one is added once ──────────────────────────────────────
+# To re-add one (e.g. after rotating its token): delete its marker file in
+# $pi_state (mcp-penpot, mcp-context7, mcp-playwright) and run this script again.
 pi_state="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles/post-install"
 mkdir -p "$pi_state"
 once() {  # once <id> <command...> — skips if <id> already succeeded
@@ -48,17 +53,17 @@ once() {  # once <id> <command...> — skips if <id> already succeeded
 
 add_playwright() { npx -y add-mcp -g -n playwright @playwright/mcp@latest; }
 add_penpot() {
-  local t
-  t=$(rbw get --field notes penpot-mcp-token | head -n1) || return 1
-  [[ -n "$t" ]] || { echo "penpot-mcp-token is empty"; return 1; }
-  npx -y add-mcp -g -n penpot "https://design.penpot.app/mcp/stream?userToken=$t"
+  local url
+  url=$(rbw get --field notes penpot-mcp-token | head -n1) || return 1
+  [[ "$url" == https://* ]] || { echo "penpot-mcp-token: expected the full https:// URL"; return 1; }
+  npx -y add-mcp -g -n penpot "$url"
 }
 add_context7() {
-  local k
-  k=$(rbw get --field notes context7-api-key | head -n1) || return 1
-  [[ -n "$k" ]] || { echo "context7-api-key is empty"; return 1; }
+  local key
+  key=$(rbw get --field notes context7-api-key | head -n1) || return 1
+  [[ -n "$key" ]] || { echo "context7-api-key is empty"; return 1; }
   npx -y add-mcp https://mcp.context7.com/mcp -g -n context7 \
-    --header "CONTEXT7_API_KEY: $k"
+    --header "CONTEXT7_API_KEY: $key"
 }
 
 once mcp-playwright add_playwright
@@ -70,6 +75,7 @@ systemctl is-active --quiet ollama || sudo systemctl start ollama
 model="lfm3:1.7b"
 ollama list | awk 'NR>1 {print $1}' | grep -qx "$model" || ollama pull "$model"
 
+# ── done: remember this version of the script (after-sync reminds otherwise) ─
 state="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles"
 mkdir -p "$state"
 sha256sum "${BASH_SOURCE[0]}" | cut -d' ' -f1 > "$state/post-install.sha256"
