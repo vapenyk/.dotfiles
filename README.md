@@ -5,7 +5,7 @@ Arch Linux - Hyprland
 ## install
 
 ```bash
-sudo pacman -S git python
+sudo pacman -S git python base-devel
 git clone https://github.com/vapenyk/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./dots/dots.py apply pkg     # symlinks for the package manager

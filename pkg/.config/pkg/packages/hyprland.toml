@@ -55,7 +55,6 @@ packages = [
     "qt6-wayland",
 
     # apps
-    "artcraft-launcher-bin",
     "chromium",
     "foot",
     "ghostty",
@@ -86,6 +85,7 @@ packages = [
     # terminal launcher (reads ~/.config/xdg-terminals.list)
     "xdg-terminal-exec",
 
+    "artcraft-launcher-bin",
     "t3code-bin",
     "ttf-roboto-flex",
     "vesktop-bin",
