@@ -31,15 +31,32 @@ description = "starter files that tools keep editing: hyprland.lua, bindings.lua
 target = "~"
 mode = "seed"
 
+[groups.system]
+description = "system files: ollama override (applied only when named, or via `all`)"
+target = "/"
+mode = "mirror"
+sudo = true
+
 # ./dots.py links  ==  ./dots.py apply main pkg copy
 [aliases]
 links = ["main", "pkg", "copy"]
+all = ["main", "pkg", "copy", "system"]
 
 # after apply, run a command if any matching file was changed
 # [[hook]]
 # match = ".config/fontconfig/*"    # glob relative to the group's target (string or list)
 # group = "main"                    # optional
 # run = ["fc-cache", "-f"]
+
+[[hook]]
+group = "system"
+match = "etc/systemd/system/ollama.service.d/*"
+run = ["sudo", "systemctl", "daemon-reload"]
+
+[[hook]]
+group = "system"
+match = "etc/systemd/system/ollama.service.d/*"
+run = ["sudo", "systemctl", "restart", "ollama"]
 
 # per-machine exclusions: globs "group/path"
 # [hosts.vivobook]
