@@ -1,0 +1,11 @@
+# ~/.config/pkg/packages/ly-tty.toml
+
+[group]
+display = "Ly TTY"
+description = "Ly TTY session"
+priority = 20
+
+[pacman]
+packages = [
+    "ly",
+]

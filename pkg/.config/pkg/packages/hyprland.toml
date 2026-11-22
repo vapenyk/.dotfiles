@@ -33,7 +33,7 @@ packages = [
     "wf-recorder",
     "zbar",
 
-    # screenshots (island: shot.sh)
+    # screenshots
     "grim",
     "hyprpicker",
     "jq",

@@ -9,7 +9,7 @@ sudo pacman -S git python
 git clone https://github.com/vapenyk/.dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./dots/dots.py apply pkg     # symlinks for the package manager
-~/.local/bin/pkg sync --exclude intel-ultra-125h        # install packages
+~/.local/bin/pkg sync --exclude intel-ultra-125h ly-tty       # install packages
 ./dots/dots.py check         # what will change (changes nothing)
 ./dots/dots.py apply         # lay out everything, a diff + question for every difference
 ```
