@@ -1,0 +1,19 @@
+# Variables for ALL graphical sessions under uwsm. Format: export KEY=VAL
+# Put theme, cursor and toolkit settings here. The environment is not set in hyprland.lua (Hyprland wiki -> UWSM).
+# uwsm sets XDG_* itself.
+
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:$HOME/go/bin:$PATH"
+export TERMINAL=xdg-terminal-exec
+export EDITOR=zeditor
+export VISUAL="$EDITOR"
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/rbw/ssh-agent-socket"
+
+export XCURSOR_THEME=Adwaita
+export XCURSOR_SIZE=24
+
+# Qt: Wayland, fall back to XWayland on failure.
+export GDK_SCALE=2
+export STEAM_FORCE_DESKTOPUI_SCALING=2
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_QPA_PLATFORMTHEME="gtk3"
+export ELECTRON_OZONE_PLATFORM_HINT=auto

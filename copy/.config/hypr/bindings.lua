@@ -1,0 +1,2 @@
+-- ~/.config/hypr/bindings.lua — starter copy from the repo (copy/): not a symlink.
+-- Tools append their own blocks here (Superwhisper managed shortcuts, ...).

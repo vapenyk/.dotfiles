@@ -1,0 +1,91 @@
+# ~/.config/pkg/packages/hyprland.toml
+
+[group]
+display = "Hyprland desktop"
+description = "Hyprland + uwsm + Quickshell, file manager and core apps"
+priority = 20
+
+[pacman]
+packages = [
+    # Hyprland session
+    "hyprland",
+    "uwsm",
+    "xdg-desktop-portal-hyprland",
+    "xdg-desktop-portal-gtk",
+    "polkit",
+    "xdg-utils",
+    "libinput-tools",
+    "wayland-utils",
+    "vulkan-tools",
+
+    # shell and login screen
+    "quickshell",
+    "gnome-keyring",
+    "libsecret",
+    "seahorse",
+
+    # quick capture
+    "gpu-screen-recorder",
+    "wf-recorder",
+    "ffmpeg",
+    "imagemagick",
+    "img2pdf",
+    "tesseract",
+    "zbar",
+
+    # screenshots (island: shot.sh)
+    "grim",
+    "slurp",
+    "hyprpicker",
+    "satty",
+    "jq",
+    "wl-clipboard",
+
+    # clipboard history, notifications, media keys, sounds
+    "playerctl",
+    "sound-theme-freedesktop",
+
+    # qt6
+    "qt6-wayland",
+    "qt6-base",
+    "qt6-tools",
+    "qt6-multimedia",
+    "qt6-svg",
+    "qt6-declarative",
+
+    # apps
+    "nwg-look",
+    "zed",
+    "peazip",
+    "ghostty",
+    "foot",
+    "chromium",
+    "nautilus",
+    "mpv",
+    "imv",
+    "udiskie",
+    "artcraft-launcher-bin",
+    "telegram-desktop",
+
+    # small things that are painful to live without
+    "xdg-user-dirs",
+    "adwaita-icon-theme",
+    "adwaita-cursors",
+    "noto-fonts",
+    "noto-fonts-emoji",
+    "adwaita-fonts",
+    "ttf-jetbrains-mono-nerd",
+    "ttf-nerd-fonts-symbols",
+    "ttf-iosevka-nerd",
+    "ttf-material-symbols-variable",
+]
+
+[paru]
+packages = [
+    # terminal launcher (reads ~/.config/xdg-terminals.list)
+    "xdg-terminal-exec",
+    "ttf-roboto-flex",
+    "vicinae-bin",
+    "t3code-bin",
+    "vesktop-bin",
+]

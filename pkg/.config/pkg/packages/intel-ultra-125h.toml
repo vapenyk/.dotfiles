@@ -1,0 +1,26 @@
+# ~/.config/pkg/packages/intel-ultra-125h.toml
+
+[group]
+display = "Intel Core Ultra 125H"
+description = "Meteor Lake: compute, oneVPL, LPMD, NPU"
+priority = 51
+
+[pacman]
+packages = [
+    # compute (OpenCL / Level Zero); current branch dropped Gen11 and older
+    "intel-compute-runtime",
+
+    # oneVPL / QSV (Gen12+)
+    "libvpl",
+    "libvpl-tools",
+    "vpl-gpu-rt",
+
+    # hybrid CPU power management (LP E-cores)
+    "intel-lpmd",
+]
+
+[paru]
+packages = [
+    # NPU (Meteor Lake and newer only)
+    "intel-npu-driver",
+]

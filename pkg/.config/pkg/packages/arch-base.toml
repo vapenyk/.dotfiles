@@ -1,0 +1,60 @@
+# ~/.config/pkg/packages/arch-base.toml
+
+[group]
+display = "Base"
+description = "Arch Linux after install"
+priority = 0
+
+[pacman]
+packages = [
+    "base-devel",
+    "git",
+    "less",
+    "git-lfs",
+    "rbw",
+    "curl",
+    "zip",
+    "unzip",
+    "aria2",
+    "fzf",
+    "nano",
+    "micro",
+    "mise",
+    "btop",
+    "jq",
+    "fastfetch",
+    "wtype",
+    "bash-completion",
+    "starship",
+
+    # audio
+    "pipewire",
+    "pipewire-pulse",
+    "wireplumber",
+    "libpulse",
+
+    # network and bluetooth
+    "networkmanager",
+    "bluez",
+    "bluez-utils",
+
+    # power and brightness
+    "upower",
+    "power-profiles-daemon",
+    "brightnessctl",
+
+    # for ruby compile
+    "libyaml",
+
+    # for appimage run
+    "fuse2",
+    "powertop",
+    "evtest",
+    "wev",
+    "python-huggingface-hub",
+    "ollama-vulkan",
+
+]
+
+# [paru]
+# packages = ["llama.cpp-openvino-bin", ""]

@@ -1,0 +1,4 @@
+# Read by xdg-terminal-exec (used by Nautilus "Open in Terminal", launchers, etc.)
+# One desktop file ID per line, first available one wins.
+foot.desktop
+com.mitchellh.ghostty.desktop

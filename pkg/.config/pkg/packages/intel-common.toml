@@ -1,0 +1,26 @@
+# ~/.config/pkg/packages/intel-common.toml
+
+[group]
+display = "Intel Common"
+description = "Intel drivers (all my machines on intel)"
+priority = 50
+
+[pacman]
+packages = [
+    # microcode & firmware
+    "intel-ucode",
+    "linux-firmware",
+    "sof-firmware",
+
+    # graphics
+    "mesa",
+    "vulkan-intel",
+
+    # video acceleration (VA-API)
+    "intel-media-driver",
+    "libva-utils",
+
+    # tools & power
+    "intel-gpu-tools",
+    "thermald",
+]

@@ -1,0 +1,14 @@
+[tools]
+antigravity-cli = "latest"
+bun = "latest"
+claude = "latest"
+codex = "latest"
+gemini = "latest"
+gh = "latest"
+node = "latest"
+opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
+pi = "latest"
+ruby = "latest"
+uv = "latest"
+
+[env]

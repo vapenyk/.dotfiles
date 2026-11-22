@@ -1,0 +1,46 @@
+# dots.toml - tells dots.py what to lay out and where.
+#
+# Paths: "~" is your home, "/..." is the filesystem root.
+# Source folders are relative to this file and mirror their target:
+#   main/.config/foo  ->  ~/.config/foo
+#
+# Moving a file between groups: git mv main/.config/x copy/.config/x, then ./dots.py apply
+
+[settings]
+# backup_dir = "~/.dotfiles_bak"        # old files go here before they are replaced
+# state_dir  = "~/.local/state/dots"    # remembered previous version of copied files (merge base)
+# ignore     = ["README*", "LICENSE*"]  # top-level files of a source folder that are not laid out
+# difftool   = "nvim -d"                # for manual conflict resolution ($DIFFTOOL wins)
+
+# mode:  link   - symlink into the repo (same file in the repo and in ~)
+#        seed   - copied once; afterwards the file lives its own life, repo changes are offered as a merge
+#        mirror - copied; the repo wins, every difference is shown
+
+[groups.main]
+description = "what I edit myself: hypr/conf, ghostty, mpv, imv, uwsm, Noctalia, zsh"
+target = "~"
+mode = "link"
+
+[groups.pkg]
+description = "the package manager: ~/.local/bin/pkg, ~/.config/pkg"
+target = "~"
+mode = "link"
+
+[groups.copy]
+description = "starter files that tools keep editing: hyprland.lua, bindings.lua, mimeapps.list, GTK settings"
+target = "~"
+mode = "seed"
+
+# ./dots.py links  ==  ./dots.py apply main pkg copy
+[aliases]
+links = ["main", "pkg", "copy"]
+
+# after apply, run a command if any matching file was changed
+# [[hook]]
+# match = ".config/fontconfig/*"    # glob relative to the group's target (string or list)
+# group = "main"                    # optional
+# run = ["fc-cache", "-f"]
+
+# per-machine exclusions: globs "group/path"
+# [hosts.vivobook]
+# exclude = ["main/.config/mpv/*"]

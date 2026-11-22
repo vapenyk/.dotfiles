@@ -1,0 +1,57 @@
+# ~/.config/pkg/backends.toml
+#
+# Fields used:
+#   check_cmd            = exit 0 if backend available
+#   install_self       = cmd to install backend itself
+#   install_self_try   = try first; fall back to script on failure
+#   install_self_script = script in scripts/ for complex bootstrap (AUR, etc.)
+#   after_install_self = cmds to run once after backend installed
+#   install_pkg       = cmd prefix — package names appended
+#   remove_pkg        = cmd prefix — package name appended
+#   list_installed    = prints one package per line
+#   list_strip_version = true if output is "name version"
+#   install_one_by_one = true to install one at a time (e.g. uv)
+
+[backends.pacman]
+description = "Official Arch repos"
+check_cmd = ["which", "pacman"]
+install_pkg = ["sudo", "pacman", "-S", "--noconfirm", "--needed"]
+remove_pkg = ["sudo", "pacman", "-Rns", "--noconfirm"]
+list_installed = ["pacman", "-Qq"]
+
+[backends.paru]
+description = "AUR helper"
+check_cmd = ["which", "paru"]
+install_self_try = ["sudo", "pacman", "-S", "--noconfirm", "--needed", "paru"]
+install_self_script = "bootstrap-paru.sh"
+install_pkg = ["paru", "-S", "--noconfirm", "--needed"]
+remove_pkg = ["paru", "-Rns", "--noconfirm"]
+list_installed = ["pacman", "-Qq"]
+
+[backends.flatpak]
+description = "Flatpak / Flathub"
+check_cmd = ["which", "flatpak"]
+install_self = ["sudo", "pacman", "-S", "--noconfirm", "--needed", "flatpak"]
+after_install_self = [
+  [
+    "flatpak",
+    "remote-add",
+    "--if-not-exists",
+    "flathub",
+    "https://dl.flathub.org/repo/flathub.flatpakrepo"
+  ],
+  ["sudo", "flatpak", "mask", "org.freedesktop.Platform.openh264"],
+]
+install_pkg = ["flatpak", "install", "-y", "--noninteractive", "flathub"]
+remove_pkg = ["flatpak", "uninstall", "-y", "--noninteractive"]
+list_installed = ["flatpak", "list", "--app", "--columns=application"]
+
+[backends.uv]
+description = "Python CLI tools"
+check_cmd = ["which", "uv"]
+install_self = ["sudo", "pacman", "-S", "--noconfirm", "--needed", "uv"]
+install_pkg = ["uv", "tool", "install"]
+remove_pkg = ["uv", "tool", "uninstall"]
+list_installed = ["uv", "tool", "list", "--quiet"]
+list_strip_version = true
+install_one_by_one = true  # uv tool install accepts one package at a time

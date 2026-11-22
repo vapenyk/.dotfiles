@@ -1,0 +1,9 @@
+{
+    "accent": "mono",
+    "tiles": [
+        "wifi",
+        "bluetooth",
+        "modes",
+        "mic"
+    ]
+}
