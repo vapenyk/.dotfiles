@@ -14,6 +14,16 @@ mise up
 # (email comes from copy/.config/rbw/config.json)
 rbw unlocked &>/dev/null || rbw unlock
 
+# ── Git identity + SSH commit signing (needs rbw unlocked) ───────────────────
+if [[ -z "$(git config --global user.name || true)" \
+   || -z "$(git config --global user.email || true)" \
+   || -z "$(git config --global user.signingkey || true)" \
+   || "$(git config --global commit.gpgsign || true)" != "true" ]]; then
+  "$(dirname "${BASH_SOURCE[0]}")/setup-git-config.sh"
+  [[ "$(git config --global commit.gpgsign || true)" == "true" ]] \
+    || { echo "git signing not configured, aborting"; exit 1; }
+fi
+
 # ── GitHub ───────────────────────────────────────────────────────────────────
 gh auth status &>/dev/null || gh auth login
 
@@ -31,5 +41,9 @@ npx -y add-mcp https://mcp.context7.com/mcp -g -n context7 \
 systemctl is-active --quiet ollama || sudo systemctl start ollama
 model="lfm3:1.7b"
 ollama list | awk 'NR>1 {print $1}' | grep -qx "$model" || ollama pull "$model"
+
+state="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles"
+mkdir -p "$state"
+sha256sum "${BASH_SOURCE[0]}" | cut -d' ' -f1 > "$state/post-install.sha256"
 
 echo "post-install done"

@@ -49,9 +49,11 @@ fi
 #   curl -fsSL https://tux.superwhisper.com/install.sh | sh
 # fi
 
-# ── reminder for the account-bound steps ─────────────────────────────────────
-if ! command -v gh &>/dev/null || ! gh auth status &>/dev/null; then
-  echo "[pkg] next: reboot, log into the session, then run ~/.dotfiles/scripts/post-install.sh (rbw, gh, agents, ollama model)"
+# ── reminder: post-install not done yet, or the script changed since ─────────
+post="$HOME/.dotfiles/scripts/post-install.sh"
+marker="${XDG_STATE_HOME:-$HOME/.local/state}/dotfiles/post-install.sha256"
+if [[ -f "$post" && "$(sha256sum "$post" | cut -d' ' -f1)" != "$(cat "$marker" 2>/dev/null)" ]]; then
+  echo "[pkg] next: reboot, log into the session, then run $post (rbw, gh, agents, ollama model)"
 fi
 
 echo "[pkg] after-sync done"
