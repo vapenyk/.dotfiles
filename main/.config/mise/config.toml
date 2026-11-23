@@ -5,6 +5,7 @@ claude = "latest"
 codex = "latest"
 gemini = "latest"
 gh = "latest"
+goose-agent = "latest"
 node = "latest"
 opencode = { version = "latest", allow_builds = ["@opencode/cli"] }
 pi = "latest"

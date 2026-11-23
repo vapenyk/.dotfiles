@@ -6,11 +6,16 @@ local terminal    = "uwsm app -- xdg-terminal-exec"
 local fileManager = "nautilus"
 local menu        = "vicinae toggle"
 
+hl.bind("SUPER + F9",  hl.dsp.exec_cmd("qs -c mshell ipc call inspector toggle"))
+hl.bind("SUPER + F10", hl.dsp.exec_cmd("qs -c mshell ipc call inspector freeze"))
+hl.bind("SUPER + F11", hl.dsp.exec_cmd("qs -c mshell ipc call inspector up"))
+hl.bind("SUPER + F12", hl.dsp.exec_cmd("qs -c mshell ipc call inspector down"))
+
 -- Launchers
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + SHIFT + code:201", hl.dsp.exec_cmd(menu))
+hl.bind(mainMod .. " + SHIFT + code:201", hl.dsp.exec_cmd("vicinae dictation toggle"))
 
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("qs -c mshell ipc call lock lock"))
 

@@ -37,5 +37,51 @@
       "layer_shell": {
          "enabled": true
       }
+   },
+   "providers": {
+      "ai": {
+         "preferences": {
+            "providers": {
+               "local": {
+                  "type": "local",
+                  "fields": {
+                     "keepLoaded": "900"
+                  }
+               },
+               "ollama": {
+                  "type": "ollama",
+                  "fields": {}
+               }
+            },
+            "defaultModel": "ollama:lfm3:1.7b",
+            "instructions": "",
+            "enableTools": true
+         }
+      },
+      "dictation": {
+         "preferences": {
+            "model": "local:parakeet-tdt-0.6b-v3-q8_0",
+            "language": "auto",
+            "sound": true,
+            "pauseMedia": true,
+            "dictationAction": "paste"
+         }
+      },
+      "snippets": {
+         "preferences": {
+            "enabled": true,
+            "undo": true,
+            "layout": "",
+            "prePasteDelay": "0",
+            "keyDelay": "2"
+         }
+      },
+      "system": {
+         "tools": {
+            "bash": {
+               "policy": "allow"
+            }
+         }
+      }
    }
 }
