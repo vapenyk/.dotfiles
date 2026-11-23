@@ -55,13 +55,12 @@ packages = [
     "qt6-wayland",
 
     # apps
-    "chromium",
+    "zen-browser-bin","zen-browser-bin",
     "foot",
     "ghostty",
     "imv",
     "mpv",
     "nautilus",
-    "nwg-look",
     "peazip",
     "telegram-desktop",
     "udiskie",
@@ -73,6 +72,7 @@ packages = [
     "adwaita-icon-theme",
     "noto-fonts",
     "noto-fonts-emoji",
+    "ttf-roboto",
     "ttf-iosevka-nerd",
     "ttf-jetbrains-mono-nerd",
     "ttf-material-symbols-variable",
@@ -85,7 +85,8 @@ packages = [
     # terminal launcher (reads ~/.config/xdg-terminals.list)
     "xdg-terminal-exec",
 
-    "artcraft-launcher-bin",
+    "biopass-bin",
+    "pamtester",
     "t3code-bin",
     "ttf-roboto-flex",
     "vesktop-bin",
